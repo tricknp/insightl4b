@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+.insightsecurity.com.br	TRUE	/	FALSE	1999999999	__cfduid	d1982b3573a6f90063c34850b8056c1a01510771996
+gist.github.com	TRUE	/	FALSE	1999999999	_gh_sess	eyJzZXNzaW9uX2lkIjoiNzFhMWU5M2E1Mjg5NTc4YzVmZGI0ODk4MzliMzZiY2YiLCJsYXN0X3JlYWRfZnJvbV9yZXBsaWNhcyI6MTUxMDc3MjA5MDgzOSwicmVmZXJyYWxfY29kZSI6Imh0dHA6Ly9sYWIuaW5zaWdodHNlY3VyaXR5LmNvbS5ici9jb25zdWx0YW5kby1yZXN1bHRhZG8tZGUtYmFuY2EtZGUtZGlyZWNhby1uby1kZXRyYW4tZGYtY29tLXB5dGhvbi8ifQ%3D%3D--5ff64a4ce867899b61ca2a1082b2075d7b05a690
+

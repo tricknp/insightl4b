@@ -1,0 +1,23 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 15 Nov 2017 16:53:14 at https://lab.insightsecurity.com.br/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwr20%e0C2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "pt_BR, en, *" https://lab.insightsecurity.com.br/ -O1 "C:\Users\Patrick\Desktop\insightl4b" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+16:53:27	Warning: 	Moved Permanently for lab.insightsecurity.com.br/robots.txt
+16:53:27	Warning: 	Redirected link is identical because of 'URL Hack' option: lab.insightsecurity.com.br/robots.txt and https://lab.insightsecurity.com.br/robots.txt
+16:53:27	Warning: 	Warning moved treated for lab.insightsecurity.com.br/robots.txt (real one is https://lab.insightsecurity.com.br/robots.txt)
+16:53:27	Warning: 	Moved Permanently for lab.insightsecurity.com.br/subscribe/
+16:53:27	Warning: 	Redirected link is identical because of 'URL Hack' option: lab.insightsecurity.com.br/subscribe/ and https://lab.insightsecurity.com.br/subscribe/
+16:53:27	Warning: 	File has moved from lab.insightsecurity.com.br/subscribe/ to https://lab.insightsecurity.com.br/subscribe/
+16:54:54	Warning: 	Retry after error -4 (No data (connection closed)) at link https://asciinema.org/a/144460.js (from https://lab.insightsecurity.com.br/phishruffus-intelligent-threat-hunter-and-phishing-servers/)
+16:55:09	Warning: 	Retry after error -4 (No data (connection closed)) at link https://asciinema.org/a/84528.js (from https://lab.insightsecurity.com.br/writeup-intercepted-conversations-pt-1-icectf-2016/)
+16:55:09	Warning: 	Retry after error -4 (No data (connection closed)) at link https://asciinema.org/a/144460.js (from https://lab.insightsecurity.com.br/phishruffus-intelligent-threat-hunter-and-phishing-servers/)
+16:55:10	Warning: 	Retry after error -4 (No data (connection closed)) at link https://asciinema.org/a/84528.js (from https://lab.insightsecurity.com.br/writeup-intercepted-conversations-pt-1-icectf-2016/)
+16:55:10	Error: 	"No data (connection closed)" (-4) after 2 retries at link https://asciinema.org/a/144460.js (from https://lab.insightsecurity.com.br/phishruffus-intelligent-threat-hunter-and-phishing-servers/)
+16:55:11	Error: 	"No data (connection closed)" (-4) after 2 retries at link https://asciinema.org/a/84528.js (from https://lab.insightsecurity.com.br/writeup-intercepted-conversations-pt-1-icectf-2016/)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 57 seconds : 84 links scanned, 75 files written (4306334 bytes overall) [3923400 bytes received at 33533 bytes/sec], 615304 bytes transferred using HTTP compression in 51 files, ratio 31%, 2.1 requests per connection
+(2 errors, 10 warnings, 0 messages)
